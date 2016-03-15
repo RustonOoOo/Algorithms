@@ -1,0 +1,113 @@
+package src;
+
+import java.util.Stack;
+
+import edu.princeton.cs.algs4.MinPQ;
+
+public class Solver {
+	
+	Node root;
+	int moves;
+	boolean isSolvable;
+	Node last;
+	
+	private class Node implements Comparable<Node>{
+		Board board;
+		int moves;
+		Node previous;
+		int priority;//越大越靠后
+		public Node(Board board, int moves, Node previous) {
+			this.board = board;
+			this.moves = moves;
+			this.previous = previous;
+			priority = board.manhattan() + moves;
+		}
+		public int compareTo(Node other) {
+			return this.priority - other.priority;
+		}
+		public String toString() {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.append("\nMoves:" + moves);
+            stringBuilder.append("\nManhattan:" + board.manhattan());
+            stringBuilder.append("\nPriority:" + priority);
+            stringBuilder.append("\nBoard:" + board);
+            return stringBuilder.toString();
+        }
+	}
+	
+    public Solver(Board initial) {
+    	// find a solution to the initial board (using the A* algorithm)
+    	Node init = new Node(initial, 0, null);
+    	Node initTwin = new Node(initial.twin(), 0, null);
+    	MinPQ<Node> gameTree = new MinPQ<>();
+    	MinPQ<Node> tgameTree = new MinPQ<>();
+    	gameTree.insert(init);
+    	tgameTree.insert(initTwin);
+    	
+    	while(!gameTree.isEmpty()&&!tgameTree.isEmpty()){//A* algorithm
+    		Node min = gameTree.delMin();
+    		//System.out.println(min);
+    		Node twinMin = tgameTree.delMin();
+    		if(min.board.isGoal()){
+    			moves = min.moves;
+    			last = min;
+    			isSolvable = true;
+    			break;
+    		}
+    		if(twinMin.board.isGoal()){
+    			moves = -1;
+    			isSolvable = false;
+    			break;
+    		}
+    		for(Board board : min.board.neighbors()){
+    			if (min.previous==null) {
+    				gameTree.insert(new Node(board, min.moves+1, min));
+				}
+    			else if(!board.equals(min.previous.board)){//critical optimization that avoid duplicates from prev
+    				gameTree.insert(new Node(board, min.moves+1, min));
+    			}
+    		}
+    		for (Board board : twinMin.board.neighbors()) {
+    			if (twinMin.previous==null) {
+    				tgameTree.insert(new Node(board, twinMin.moves+1, twinMin));
+				}
+    			else if(!board.equals(twinMin.previous.board)){
+    				tgameTree.insert(new Node(board, twinMin.moves+1, twinMin));
+    			}
+    		}
+    	}
+    }
+    public boolean isSolvable() {
+    	// is the initial board solvable?
+    	return isSolvable;
+    }
+    public int moves() {
+    	// min number of moves to solve initial board; -1 if unsolvable
+    	return moves;
+    }
+    public Stack<Board> solution() {
+    	// sequence of boards in a shortest solution; null if unsolvable
+    	Stack<Board> solution = new Stack<>();
+    	Node t = last;
+    	while(t!=root){
+    		solution.push(t.board);
+    		//System.out.println(t.board);
+    		t = t.previous;
+    	}
+    	return solution;
+    }
+    public static void main(String[] args) {
+    	// solve a slider puzzle (given below)
+    	int[][]blocks = new int[][]{
+    		{5,2,3},
+    		{1,0,6},
+    		{7,8,4}
+    	};
+    	Board board = new Board(blocks);
+    	Solver s = new Solver(board);
+    	System.out.println(s.moves);
+    	for(Board b : s.solution()){
+    		System.out.println(b);
+    	}
+    }
+}
