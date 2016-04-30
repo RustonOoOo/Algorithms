@@ -1,23 +1,61 @@
-# Algorithms
-#Homework Assignment from coursera Algorithms I && II
-##Part I
------------
-##week 1 : percolation
-####using union find algorithm to find connectivity and do union operation
------------
-##week 2 : Queues
-####some fundamental data structure such as deque stack and queue
------------
-##week 3 : collinear
-####using sorting algorithms to solve problems like find the collinear this makes you uderstand the importance 0f stable sort
------------
-##week4 : 8-puzzle
-####using A* search to optimize expectation and build a game tree by weight and find the optimal result of 8-puzzle
------------
-##Part II
------------
-##week 1 : wordNet
-####using bfs to search the most irrelevant word in a word set
------------
-##week 2 : seamCarving
-####using Topological sort to find the seam in a picture(which energy is the least one)and cut the seam to shrink the picture 
+Coursera: Algorithms
+===================
+
+Programming Assignments (Algorithms, Part I and II by Kevin Wayne, Robert Sedgewick)
+
+Part I
+
+PA-1 Percolation (Union-find)
+###
+		Specification: 
+			http://coursera.cs.princeton.edu/algs4/assignments/percolation.html
+		Code:
+			Percolation.java;
+			PercolationStats.java
+	
+PA-2 Randomized Queues and Deques (Queue and Stack)
+###
+		Specification:
+			http://coursera.cs.princeton.edu/algs4/assignments/queues.html
+		Code:
+			Deque.java;
+			RandomizedQueue.java;
+			Subset.java
+
+PA-3 Pattern Recognition (Sort)
+###
+		Specification:
+			http://coursera.cs.princeton.edu/algs4/assignments/collinear.html
+		Code:
+			Point.java;
+			Brute.java;
+			Fast.java
+
+PA-4 8 Puzzle (Priority Queues)
+###
+		Specification:
+			http://coursera.cs.princeton.edu/algs4/assignments/8puzzle.html
+		Code:
+			Point.java;
+			Board.java;
+			Solver.java
+
+Part II
+
+PA-1 WordNet
+###
+		Specification: 
+			http://coursera.cs.princeton.edu/algs4/assignments/wordnet.html
+		Code:
+			WordNet.java;
+			SAP.java;
+			Outcast.java
+
+PA-2 Seam Carving
+###
+		Specification: 
+			http://coursera.cs.princeton.edu/algs4/assignments/seamCarving.html
+		Code:
+			SeamCarver.java
+	
+	
