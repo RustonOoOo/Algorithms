@@ -59,3 +59,14 @@ PA-2 Seam Carving
 			SeamCarver.java
 	
 	
+
+---
+dsa:(Data structure and algorithms)
+===================
+
+1. BucketSort // bucket sort<br>
+2. counting sort //counting sort<br>
+3. Poker // Pocker's Monte-Carlo simulation in java<br>
+4. Range //binary search algorithm<br>
+5. Train_Stack // using stack to simulate train dispatch<br>
+6. Zuma //using list to simulate zuma game<br>
