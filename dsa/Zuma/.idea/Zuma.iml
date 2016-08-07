@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="CPP_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/ListNode.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/List.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/List.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/main.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ListNode.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
+    </content>
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="Header Search Paths">
+        <CLASSES>
+          <root url="file://F:/BaiduYunDownload/MinGW/lib/gcc/mingw32/4.8.1/include" />
+          <root url="file://F:/BaiduYunDownload/MinGW/lib/gcc/mingw32/4.8.1/include-fixed" />
+          <root url="file://F:/BaiduYunDownload/MinGW/mingw32/include" />
+          <root url="file://F:/BaiduYunDownload/MinGW/include" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://F:/BaiduYunDownload/MinGW/lib/gcc/mingw32/4.8.1/include" />
+          <root url="file://F:/BaiduYunDownload/MinGW/lib/gcc/mingw32/4.8.1/include-fixed" />
+          <root url="file://F:/BaiduYunDownload/MinGW/mingw32/include" />
+          <root url="file://F:/BaiduYunDownload/MinGW/include" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+  </component>
+</module>
